@@ -17,8 +17,6 @@ interface BalanceProps{
 }
 
 export default function Balance({ saldo, gastos }: BalanceProps){
-    console.log(saldo, gastos)
-
     return(
         <Container>
             <Item>
