@@ -34,3 +34,11 @@ export const SubTitle = styled.Text`
 export const ScrollContainer = styled.ScrollView`
     flex:1;
 `
+
+export const Empty = styled.Text`
+    margin: 20px 0px;
+    color: #444444;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+`

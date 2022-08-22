@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { DocumentData } from 'firebase/firestore';
 
 import {
     Container, 
@@ -11,13 +12,7 @@ import {
 
 } from './styles'
 
-import { ListProps } from '../../screens/Home';
-
-interface Props{
-    data: ListProps;
-}
-
-export default function Movements({ data }: Props){
+export default function Movements({ data }: DocumentData){
     const [showValue, setShowValue] = useState<Boolean>(false);
 
     return(

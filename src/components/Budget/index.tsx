@@ -12,19 +12,9 @@ import {
 } from './styles'
 
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { DocumentData } from 'firebase/firestore';
 
-interface BudgetProps {
-    data: {
-        id: number;
-        icon: string;
-        name: string;
-        color: string;
-        total: number;
-        used: number;
-    };
-}
-
-export default function Budget({ data }: BudgetProps){
+export default function Budget({ data }: DocumentData){
     const icon = data.icon as keyof typeof MaterialCommunityIcons.glyphMap;
 
     return(
