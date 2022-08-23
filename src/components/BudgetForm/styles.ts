@@ -1,6 +1,6 @@
 import styled from 'styled-components/native'
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
     background-color: #000000aa;
     height: 100%;
     width: 100%;
@@ -38,7 +38,7 @@ export const Input = styled.TextInput`
     margin-bottom: 20px;
 `
 
-export const ButtonContainer = styled.View`
+export const ButtonContainer = styled.TouchableOpacity`
     width: 100%;
     height: 45px;
     background-color: #0066ff;

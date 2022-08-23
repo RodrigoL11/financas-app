@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import { 
     Container,
@@ -10,6 +11,8 @@ import {
 import { AntDesign } from '@expo/vector-icons'
 
 export default function Actions(){
+    const navigator = useNavigation();
+
     return(
         <Container horizontal={true} showsHorizontalScrollIndicator={false}>
             <ActionButton>
@@ -24,7 +27,7 @@ export default function Actions(){
                 </AreaButton>
                 <Label>Compras</Label>
             </ActionButton>
-            <ActionButton>
+            <ActionButton onPress={() => navigator.navigate("Wallets")}>
                 <AreaButton>
                     <AntDesign name='creditcard' size={26} color='#000' />
                 </AreaButton>

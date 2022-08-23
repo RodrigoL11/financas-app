@@ -29,18 +29,20 @@ export default function Home() {
 
     useEffect(() => {
         setIsLoading(true);
-
+        
         async function queryTransactions(){
           const querySnapshot = await getDocs(collection(database, "Transactions"));
           querySnapshot.forEach((doc) => {
-            setTransactions(arr => [...arr, doc.data()])
+            if(doc.data() != transactions[0])
+                setTransactions(arr => [...arr, doc.data()])
           });
         }
 
         async function queryBudgets(){
             const querySnapshot = await getDocs(collection(database, "Budgets"));
             querySnapshot.forEach((doc) => {
-                setBudgets(arr => [...arr, doc.data()]);
+                if(doc.data() != budgets[0])
+                    setBudgets(arr => [...arr, doc.data()]);
             });
         }
     
@@ -51,7 +53,9 @@ export default function Home() {
       }, [])
 
     if(isLoading){
-        return <Loading />
+        return (
+            <Loading />
+        )
     }
 
     return (
@@ -79,7 +83,7 @@ export default function Home() {
                     </ButtonContainer>
                 </Content>
             </ScrollContainer>
-            {showBudgetForm ?  <BudgetForm /> : null}
+            {showBudgetForm ?  <BudgetForm onPress={() => setShowBudgetForm(false)} /> : null}
         </Container>
     )
 }

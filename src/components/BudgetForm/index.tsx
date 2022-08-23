@@ -13,9 +13,13 @@ import {
   Options,
 } from "./styles";
 
-export default function BudgetForm() {
+interface Props{
+  onPress: () => void;
+}
+
+export default function BudgetForm({onPress}: Props) {
   return (
-    <Container>
+    <Container onPress={onPress}>
       <Content>
         <Title>Criar Orçamento</Title>
         <Label>Nome</Label>
