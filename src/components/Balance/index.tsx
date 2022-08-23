@@ -1,5 +1,4 @@
 import React from 'react'
-import { Float } from 'react-native/Libraries/Types/CodegenTypes'
 
 import {
     Container, 

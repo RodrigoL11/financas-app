@@ -21,8 +21,11 @@ export const Content = styled.View`
     padding: 8px 14px;
     border-radius: 20px;
 `
+export const ButtonContainer = styled.TouchableOpacity`
 
-export const SubTitle = styled.Text`
+`
+
+export const ButtonText = styled.Text`
     text-align: center;
     color: #54b8ff;
     font-size: 16px;

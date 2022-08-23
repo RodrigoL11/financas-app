@@ -12,7 +12,6 @@ export const Container = styled.View`
     margin-left: 14px;
     margin-right: 14px;
     border-radius: 14px;
-    z-index: 99;
 `
 
 export const Item = styled.View`

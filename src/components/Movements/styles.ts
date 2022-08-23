@@ -1,7 +1,6 @@
 import styled from 'styled-components/native'
 
 export const Container = styled.TouchableOpacity`
-    flex: 1;
     margin: 5px 0px;
 `
 export const Date = styled.Text`
