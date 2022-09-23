@@ -5,7 +5,7 @@ interface ContainerProps{
 }
 
 export const Container = styled.View<ContainerProps>`
-    background-color: #8000ff;
+    background-color: #2596be;
     padding-top: ${(props) => props.height || 22}px;
     padding-left: 16px;
     padding-right: 16px;
