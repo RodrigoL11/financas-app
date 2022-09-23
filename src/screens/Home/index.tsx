@@ -30,8 +30,16 @@ import {
    Input,
    Label,
    Options,
-   ValueInput
+   ValueInput,
+   OptionContainer
 } from './styles'
+
+
+interface IOption{
+   name: keyof typeof FontAwesome5.glyphMap;
+   isActive: boolean;
+   onPress: () => void;
+}
 
 export default function Home() {
    const [transactions, setTransactions] = useState<DocumentData[]>([]);
@@ -40,6 +48,7 @@ export default function Home() {
    const [showBudgetForm, setShowBudgetForm] = useState(false);
    const [name, setName] = useState("");
    const [value, setValue] = useState(0);
+   const [category, setCategory] = useState("");
 
    const toogleBudgetForm = () => {
       setName("");
@@ -77,6 +86,14 @@ export default function Home() {
    if (isLoading) {
       return (
          <Loading />
+      )
+   }
+
+   const Option = ({name, isActive, onPress}: IOption) => {
+      return(
+         <OptionContainer onPress={onPress} style={isActive ? {backgroundColor: "#00000077"} : null}>
+            <FontAwesome5 name={name} size={32} color={isActive ? "#2596be" : "#000"}/>
+         </OptionContainer>
       )
    }
 
@@ -132,16 +149,15 @@ export default function Home() {
                         onChangeText={(text) => {
                            console.log(text); // $2,310.46
                         }}
-
                      />
                      <Options>
-                        <FontAwesome5 name="car-side" size={32} outline color={"#000"} />
-                        <FontAwesome5 name="briefcase-medical" size={32} color={"#000"} />
-                        <FontAwesome5 name="umbrella-beach" size={32} color={"#000"} />
-                        <FontAwesome5 name="piggy-bank" size={32} color={"#000"} />
-                        <FontAwesome5 name="hamburger" size={32} color={"#000"} />
+                        <Option onPress={() => setCategory("car-side")} isActive={category === "car-side"} name="car-side" />
+                        <Option onPress={() => setCategory("briefcase-medical")} isActive={category === "briefcase-medical"} name="briefcase-medical" />
+                        <Option onPress={() => setCategory("umbrella-beach")} isActive={category === "umbrella-beach"} name="umbrella-beach" />
+                        <Option onPress={() => setCategory("piggy-bank")} isActive={category === "piggy-bank"} name="piggy-bank" />
+                        <Option onPress={() => setCategory("hamburger")} isActive={category === "hamburger"} name="hamburger" />
                      </Options>
-                     <BudgetButton>
+                     <BudgetButton onPress={() => console.log('oi')}>
                         <BudgetButtonTitle>Finalizar</BudgetButtonTitle>
                      </BudgetButton>
                   </BudgetForm>

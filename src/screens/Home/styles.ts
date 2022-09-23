@@ -118,3 +118,7 @@ export const Options = styled.View`
     width: 100%;
     margin-bottom: 20px;
 `
+
+export const OptionContainer = styled.TouchableOpacity`
+    padding: 5px;
+`
