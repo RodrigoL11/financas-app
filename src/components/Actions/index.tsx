@@ -14,8 +14,9 @@ export default function Actions(){
     const navigator = useNavigation();
 
     return(
-        <Container horizontal={true} showsHorizontalScrollIndicator={false}>
-            <ActionButton>
+        // <Container horizontal={true} showsHorizontalScrollIndicator={false}>
+        <Container>
+            <ActionButton onPress={() => navigator.navigate("Transactions")}>
                 <AreaButton>
                     <AntDesign name='addfolder' size={26} color='#000' />
                 </AreaButton>
@@ -32,19 +33,13 @@ export default function Actions(){
                     <AntDesign name='creditcard' size={26} color='#000' />
                 </AreaButton>
                 <Label>Carteira</Label>
-            </ActionButton>
-            <ActionButton>
-                <AreaButton>
-                    <AntDesign name='barcode' size={26} color='#000' />
-                </AreaButton>
-                <Label>Boletos</Label>
-            </ActionButton>
+            </ActionButton>            
             <ActionButton>
                 <AreaButton>
                     <AntDesign name='setting' size={26} color='#000' />
                 </AreaButton>
                 <Label>Conta</Label>
-            </ActionButton>
+            </ActionButton>            
         </Container>
     );
 }

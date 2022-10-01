@@ -5,7 +5,7 @@ interface BarProps{
     color: string;
 }
 
-export const Container = styled.View`
+export const Container = styled.TouchableOpacity`
     flex-direction: row;
     align-items: center;
     margin-bottom: 12px;
@@ -33,7 +33,7 @@ export const BarContainer = styled.View`
 `
 
 export const Bar = styled.View<BarProps>`
-    width: ${(props) => props.width}px;
+    width: ${(props) => props.width}%;
     height: 8px;
     background-color: ${(props) => props.color};
     border-radius: 20px;

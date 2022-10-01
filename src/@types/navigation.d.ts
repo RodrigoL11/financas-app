@@ -7,6 +7,7 @@ export type ComandaNavigationProps = {
       interface RootParamList {
         Home: undefined;
         Wallets: undefined;
+        Transactions: undefined;
       }
     }
   }

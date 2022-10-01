@@ -1,15 +1,18 @@
 import styled from 'styled-components/native'
 
-export const Container = styled.ScrollView`
+export const Container = styled.View`
     max-height: 84px;
     margin-bottom: 14px;
     margin-top: 18px;
     padding: 0px 14px;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 `
 
 export const ActionButton = styled.TouchableOpacity`
     align-items: center;
-    margin-right: 32px;
+    margin: 0 16px;
 `
 
 export const AreaButton = styled.View`

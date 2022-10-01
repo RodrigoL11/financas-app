@@ -1,37 +1,21 @@
 import styled from 'styled-components/native'
 
-interface ContainerProps{
-    height: number;
-}
-
-export const Container = styled.View<ContainerProps>`
-    background-color: #2596be;
-    padding-top: ${(props) => props.height || 22}px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-bottom: 44px;
+export const Container = styled.View`
+    width: 100%;
+    height: 80px;
+    padding-top: 25px;
+    background-color: #fff;
     flex-direction: row;
-    height: auto;
-`
-
-export const Content = styled.View`
-    flex: 1;
     align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
+    box-shadow: 10px 5px 5px black;
 `
 
-export const Username = styled.Text`
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
+export const Icon = styled.TouchableOpacity`
+    margin-left: 3%;
 `
 
-export const IconButton = styled.TouchableOpacity`
-    width: 44px;
-    height: 44px;
-    background-color: rgba(255, 255, 255, 0.5);
-    justify-content: center;
-    align-items: center;
-    border-radius: 9999px;
+export const Title = styled.Text`
+    margin-left: 5%;
+    font-weight: 400;
+    font-size: 19px;
 `

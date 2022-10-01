@@ -3,7 +3,7 @@ import styled from 'styled-components/native'
 export const Container = styled.TouchableOpacity`
     margin: 5px 0px;
 `
-export const Date = styled.Text`
+export const DateLabel = styled.Text`
     color: #dadada;
     font-weight: bold;
 `

@@ -8,12 +8,12 @@ import {
   Content
 } from './styles'
 
-export default function Wallets(){
+export default function Transactions(){
   const navigation = useNavigation();
 
   return(
     <Container>
-      <Header title="Carteiras" onPress={navigation.goBack} />
+      <Header title="Entradas" onPress={navigation.goBack} />
       <Content>
         
       </Content>
