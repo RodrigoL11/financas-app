@@ -2,40 +2,39 @@ import styled from 'styled-components/native'
 
 export const Container = styled.TouchableOpacity`
     margin: 5px 0px;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;  
 `
 export const DateLabel = styled.Text`
-    color: #dadada;
-    font-weight: bold;
+    font-weight: 300;
 `
 
-export const Content = styled.View`
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 2px;
-    margin-bottom: 8px;
-`
-
-export const Label = styled.Text`
-    font-weight: bold;
-    font-size: 16px;
+export const Label = styled.Text` 
+    font-weight: 500;
+    color: #333;
+    font-size: 14.5px;
 `
 
 export const Value = styled.Text`
-    font-size: 16px;
+    font-size: 13px;
     color: #2ecc71;
-    font-weight: bold;
+    font-weight: 500;
+    text-align: center;
 `
 
 export const Expenses = styled.Text`
-    font-size: 16px;
+    font-size: 13.5px;
     color: #e74c3c;
-    font-weight: bold;
+    font-weight: 500;
+    text-align: center;
 `
 
-export const Skeleton = styled.View`
-    margin-top: 6px;
-    width: 80px;
-    height: 10px;
-    background-color: #DADADA;
-    border-radius: 8px;
+export const Column = styled.View`
+    
+`
+
+export const Wallet = styled.Text`
+    font-size: 10.5px;
+    text-align: center;
 `

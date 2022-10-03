@@ -2,61 +2,71 @@ import React, { useState, useEffect } from 'react'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import {
-    Container,     
-    Content,
+    Container,
     Label,
     Value,
     Expenses,
-    Skeleton,
-    DateLabel
+    DateLabel,
+    Column,
+    Wallet
 
 } from './styles'
 import { ITransactions } from '../../interfaces/main';
-import {  getDoc, DocumentData } from 'firebase/firestore';
+import { getDoc, DocumentData } from 'firebase/firestore';
+import { toDateTime } from '../../utils/date';
 
-function toDateTime(secs: number){
-    var date = new Date(secs * 1000);
-    return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`
+function commafy( num: number ) {
+    var str = num.toString().split('.');
+    if (str[0].length >= 5) {
+        str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+    }
+    if (str[1] && str[1].length >= 5) {
+        str[1] = str[1].replace(/(\d{3})/g, '$1 ');
+    }
+    if (!str[1]) str.push('00');
+    while (str[1].length < 2) {
+        str[1] += '0'
+    }
+    
+    return str.join('.');
 }
 
-interface Props{
+interface Props {
     data: ITransactions
 }
 
-export default function Movements({ data }: Props){
-    const [showValue, setShowValue] = useState<Boolean>(false);
+export default function Movements({ data }: Props) {
     const date = toDateTime(data.created_at.seconds)
+    const [showValue, setShowValue] = useState<Boolean>(false);
     const [budget, setBudget] = useState<DocumentData>()
-    
-    console.log(data.created_at)
 
-    const getBudget =  async () => {
+    const getBudget = async () => {
         const result = await getDoc(data.budgetRef);
         setBudget(result.data());
     }
 
     useEffect(() => {
         getBudget();
-    }, [])    
-    
-    return(
-        <Container activeOpacity={1} onPress={() => {
-            console.log(data.budgetRef.id)
-            setShowValue(!showValue)
-            }}>
-            <MaterialCommunityIcons name={budget?.icon} size={34} color="#000"/>
-            <DateLabel>{date}</DateLabel>
-            <Content>
+    }, [])
+
+    return (
+        <Container activeOpacity={1}>
+            <Column style={{width: '9.5%'}}>
+            <MaterialCommunityIcons name={budget?.icon} size={30} color="#333" />
+            </Column>
+            <Column style={{marginLeft: 5, width: '60.5%'}}>
                 <Label>{data.name}</Label>
-                { !showValue ? (
-                    <Skeleton />
-                ) : data.type === 1 ? (
-                    <Value>{data.value}</Value>
-                ) : (
-                    <Expenses>R$ {data.value.toFixed(2)}</Expenses>
-                )
-                }
-            </Content>
+                <DateLabel>{date}</DateLabel>
+            </Column>
+            <Column style={{marginLeft: 5, width: '30%'}}>
+            <Wallet>{data.wallet}</Wallet>
+            {data.type === 1 ? (
+                <Value>{data.value}</Value>
+            ) : (
+                <Expenses>R$ {commafy(data.value)}</Expenses>
+            )
+            }
+            </Column>
         </Container>
     );
 }

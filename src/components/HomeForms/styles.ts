@@ -12,19 +12,19 @@ export const Container = styled.View`
 
 export const Content = styled.View`
     width: 100%;
-    height: 330px;
+    height: 360px;
     background-color: #fff;
     padding: 0 30px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
-    align-items: center;
+
 `
 
 export const Title = styled.Text`
-    text-align: center;
-    font-size: 26px;
-    margin: 10px 0px;
+    font-size: 23px;
     font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 16px;
 
 `
 
@@ -52,21 +52,31 @@ export const OptionContainer = styled.TouchableOpacity`
 `
 
 export const Input = styled.TextInput`
-    border-bottom-width: 1px;
+    border-bottom-width: 1.5px;
     border-color: #dadada;
     width: 100%;
     margin-bottom: 15px;
 `
 
 export const ValueInput = styled(CurrencyInput)`
-    border-bottom-width: 1px;
+    border-bottom-width: 1.5px;
     border-color: #dadada;
     width: 100%;
     margin-bottom: 20px;
 `
 
 export const Label = styled.Text`
-    font-size: 13px;
+    font-size: 11px;
     width: 100%;
-    font-weight: bold;
+    font-weight: 500;
+    color: #444;
+`
+
+export const Row = styled.View`
+    flex-direction: row;
+    justify-content: space-between;    
+`
+
+export const Column = styled.View`
+    width: 48%;
 `

@@ -29,7 +29,7 @@ export const ButtonContainer = styled.TouchableOpacity`
 export const ButtonText = styled.Text`
     text-align: center;
     color: #54b8ff;
-    font-size: 16px;
+    font-size: 15px;
     border-top-width: 0.5px;
     border-color: #dadada;
     padding-top: 6px;

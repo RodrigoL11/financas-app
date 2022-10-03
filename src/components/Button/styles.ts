@@ -6,7 +6,7 @@ interface Props{
 
 export const Container = styled.TouchableOpacity<Props>`
   width: 100%;
-  padding: 15px;
+  padding: 10px;
   align-items: center;
   justify-content: center;
   background-color: #2596be;

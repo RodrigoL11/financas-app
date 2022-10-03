@@ -95,7 +95,7 @@ export default function Home() {
                   setType('create-transaction');
                   toogleForms();
                   }}>
-                  <ButtonText>Ver mais</ButtonText>
+                  <ButtonText>Criar Transação</ButtonText>
                </ButtonContainer>
             </Content>
          </ScrollContainer>
