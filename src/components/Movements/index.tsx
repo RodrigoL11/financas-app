@@ -36,8 +36,7 @@ interface Props {
 }
 
 export default function Movements({ data }: Props) {
-    const date = toDateTime(data.created_at.seconds)
-    const [showValue, setShowValue] = useState<Boolean>(false);
+    const date = toDateTime(data.created_at.seconds)    
     const [budget, setBudget] = useState<DocumentData>()
 
     const getBudget = async () => {

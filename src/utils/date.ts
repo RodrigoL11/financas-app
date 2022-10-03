@@ -5,6 +5,5 @@ function concat(value: number){
 export function toDateTime(secs: number) {  
   var date = new Date(secs * 1000);
 
-
   return `${concat(date.getDate())}/${concat(date.getMonth())}/${date.getFullYear()} ${concat(date.getHours())}:${concat(date.getMinutes())}`
 }

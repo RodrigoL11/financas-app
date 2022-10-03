@@ -14,7 +14,7 @@ export const Content = styled.View`
     width: 100%;
     height: 360px;
     background-color: #fff;
-    padding: 0 30px;
+    padding: 0 28px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 
@@ -56,6 +56,7 @@ export const Input = styled.TextInput`
     border-color: #dadada;
     width: 100%;
     margin-bottom: 15px;
+    font-size: 14px;
 `
 
 export const ValueInput = styled(CurrencyInput)`
