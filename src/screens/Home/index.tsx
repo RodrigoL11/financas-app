@@ -76,7 +76,7 @@ export default function Home() {
    return (
       <Container>
          <UserCard name={"Rodrigo Lemes"} />
-         <Balance saldo={"9.000,90"} gastos={"-527,00"} />
+         <Balance saldo={"100,00"} gastos={"50,00"} />
          <Actions />
          <ScrollContainer>
             <Content>
