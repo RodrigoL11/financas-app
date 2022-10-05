@@ -37,15 +37,20 @@ export default function Home() {
       setShowForms(!showForms);
    }
 
-   const loadData = async () => {
+   const loadData = async () => { 
+      setBudgets([])
+      setTransactions([])
+      
       const queryTransactions = await getDocs(collection(database, "Transactions"));
-      queryTransactions.forEach((doc) => {
+      queryTransactions.forEach((doc) => {         
          setTransactions(arr => [...arr, doc.data() as ITransactions])
       });
 
       const queryBudgets = await getDocs(collection(database, "Budgets"));
       queryBudgets.forEach((doc) => {
-         setBudgets(arr => [...arr, doc.data() as IBudget]);
+         let result = doc.data();
+         result.id = doc.id;
+         setBudgets(arr => [...arr, result as IBudget]);
       });
    }
 
@@ -63,9 +68,9 @@ export default function Home() {
       )
    }
 
-   const types={
-      'create-budget': <CreateBudget setBudgets={setBudgets} toogleForms={toogleForms}/>,
-      'create-transaction': <CreateTransaction setTransactions={setTransactions} toogleForms={toogleForms}/>
+   const types = {
+      'create-budget': <CreateBudget setBudgets={setBudgets} toogleForms={toogleForms} />,
+      'create-transaction': <CreateTransaction budgets={budgets} setBudgets={setBudgets} setTransactions={setTransactions} toogleForms={toogleForms} />
    }
 
    return (
@@ -94,19 +99,19 @@ export default function Home() {
                <ButtonContainer onPress={() => {
                   setType('create-transaction');
                   toogleForms();
-                  }}>
+               }}>
                   <ButtonText>Criar Transação</ButtonText>
                </ButtonContainer>
             </Content>
          </ScrollContainer>
-         
+
          <Modal
             visible={showForms}
             transparent={true}
             onRequestClose={toogleForms}
          >
             <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-               {types[type as keyof typeof types]}               
+               {types[type as keyof typeof types]}
             </TouchableWithoutFeedback>
          </Modal>
       </Container>

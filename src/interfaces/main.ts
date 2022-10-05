@@ -1,6 +1,7 @@
 import { DocumentReference, FieldValue, Timestamp } from "firebase/firestore";
 
 export interface IBudget {
+  id: string,
   color: string,
   icon: string,
   name: string,

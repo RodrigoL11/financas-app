@@ -36,7 +36,7 @@ interface Props {
 }
 
 export default function Movements({ data }: Props) {
-    const date = toDateTime(data.created_at.seconds)    
+    const date = toDateTime(data.created_at.seconds * 1000)    
     const [budget, setBudget] = useState<DocumentData>()
 
     const getBudget = async () => {
@@ -60,7 +60,7 @@ export default function Movements({ data }: Props) {
             <Column style={{marginLeft: 5, width: '30%'}}>
             <Wallet>{data.wallet}</Wallet>
             {data.type === 1 ? (
-                <Value>{data.value}</Value>
+                <Value>R$ {commafy(data.value)}</Value>
             ) : (
                 <Expenses>R$ {commafy(data.value)}</Expenses>
             )

@@ -53,8 +53,10 @@ export default function CreateBudget({ setBudgets, toogleForms }: Props) {
       used: 0
     }
 
-    await addDoc(collection(database, "Budgets"), newBudget);
-    setBudgets(arr => [...arr, newBudget]);
+    await addDoc(collection(database, "Budgets"), newBudget)
+    .then(response => {
+      setBudgets(arr => [...arr, {...newBudget, id: response.id}]);
+    });
 
     toogleForms();
   }
